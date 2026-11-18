@@ -1,0 +1,311 @@
+/* ==========================================================================
+   Scholarship Hub — Responsive Media Queries & Mobile Stylesheet
+   ========================================================================== */
+
+/* Tablet & Smaller Desktops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.35rem;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .stats-ribbon {
+    gap: 1.25rem;
+    padding: 0.75rem 1.25rem;
+  }
+
+  .modal-specs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets & Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Navigation adjustments */
+  .desktop-nav,
+  .announcement-actions {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+  }
+
+  .site-header {
+    height: 64px;
+  }
+
+  .header-container {
+    height: 64px;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 3rem 0 2rem;
+  }
+
+  .hero-title {
+    font-size: 1.95rem;
+    line-height: 1.22;
+  }
+
+  .hero-description {
+    font-size: 0.975rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .search-wrapper {
+    margin-bottom: 1.75rem;
+  }
+
+  .search-box {
+    padding: 0.35rem 0.65rem 0.35rem 1rem;
+  }
+
+  .search-box input {
+    font-size: 0.9rem;
+    padding: 0.6rem 0;
+  }
+
+  /* Stats Ribbon Mobile */
+  .stats-ribbon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .stat-number {
+    font-size: 1.25rem;
+  }
+
+  /* Categories Bar */
+  .categories-bar-section {
+    top: 64px;
+  }
+
+  /* Filter Toolbar */
+  .filter-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .filter-group .select-wrapper {
+    width: 100%;
+  }
+
+  .filter-select {
+    width: 100%;
+  }
+
+  .filter-group #resetFiltersBtn {
+    grid-column: span 2;
+    justify-content: center;
+  }
+
+  .sort-and-count {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  /* Cards Grid */
+  .scholarship-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Newsletter Card */
+  .newsletter-card {
+    padding: 2rem 1.5rem;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .newsletter-form {
+    min-width: 100%;
+  }
+
+  .form-group-inline {
+    flex-direction: column;
+  }
+
+  /* Footer */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  /* Modals */
+  .modal-backdrop {
+    padding: 0.75rem;
+  }
+
+  .modal-dialog {
+    max-height: 94vh;
+  }
+
+  .modal-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .modal-title {
+    font-size: 1.25rem;
+  }
+
+  .modal-specs-grid {
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-col-6, .form-col-4 {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+
+  .modal-footer {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .modal-footer-left,
+  .modal-footer-right {
+    width: 100%;
+  }
+
+  .modal-footer-left button,
+  .modal-footer-right a,
+  .modal-footer-right button {
+    flex: 1;
+  }
+}
+
+/* Mobile Drawer Overlay & Panel */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.drawer-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 300px;
+  height: 100%;
+  background: var(--bg-surface);
+  border-left: 1px solid var(--border-light);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-xl);
+  transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-drawer.open {
+  right: 0;
+}
+
+.drawer-header {
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.drawer-body {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-nav-link {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.drawer-actions {
+  margin-top: 2rem;
+}
+
+/* Extra Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero-title {
+    font-size: 1.65rem;
+  }
+
+  .card-specs {
+    grid-template-columns: 1fr;
+  }
+
+  .card-footer-btns {
+    flex-direction: column;
+  }
+
+  .btn-card-detail, .btn-card-apply {
+    width: 100%;
+  }
+
+  .toast {
+    min-width: 90vw;
+    right: 5vw;
+    left: 5vw;
+  }
+}

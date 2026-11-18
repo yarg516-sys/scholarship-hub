@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scholarship Hub — Pakistan & International Scholarships</title>
+  <meta name="description" content="Discover daily updated scholarship opportunities from Pakistan and top universities worldwide. Covering School, College, Undergraduate, Master's, and PhD programs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="light-theme">
+  <!-- Top Announcement Bar -->
+  <aside class="announcement-bar" role="region" aria-label="Announcement">
+    <div class="container announcement-content">
+      <span class="badge-pulse"></span>
+      <p>📢 <strong>Daily Opportunities:</strong> Verified scholarships from universities, governments & foundations across Pakistan & globally.</p>
+      <div class="announcement-actions">
+        <button id="postModalTriggerTop" class="btn-text-link">+ Post Scholarship</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Navigation Header -->
+  <header class="site-header" id="header">
+    <div class="container header-container">
+      <a href="#" class="brand-logo" aria-label="Scholarship Hub Home">
+        <div class="logo-mark">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-title">Scholarship<strong>Hub</strong></span>
+          <span class="brand-sub">Pakistan & Global Portals</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#scholarships" class="nav-link active">Scholarships</a></li>
+          <li><a href="#categories" class="nav-link">Categories</a></li>
+          <li><a href="#news" class="nav-link">News & Bulletins</a></li>
+          <li><a href="#saved" class="nav-link" id="savedNavBtn">Saved <span class="badge-counter" id="savedCountBadge">0</span></a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Controls -->
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="icon-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button id="postModalTrigger" class="btn btn-primary btn-sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
+          <span>Post Scholarship</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="icon-btn mobile-only" aria-label="Open Navigation Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="drawer-brand">
+        <span class="brand-title">Scholarship<strong>Hub</strong></span>
+      </div>
+      <button id="closeDrawerBtn" class="icon-btn" aria-label="Close Navigation Menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="drawer-body">
+      <ul class="mobile-nav-list">
+        <li><a href="#scholarships" class="mobile-nav-link active">All Scholarships</a></li>
+        <li><a href="#categories" class="mobile-nav-link">Categories</a></li>
+        <li><a href="#news" class="mobile-nav-link">News & Bulletins</a></li>
+        <li><a href="#saved" class="mobile-nav-link" id="mobileSavedLink">Saved Scholarships (<span id="mobileSavedCount">0</span>)</a></li>
+      </ul>
+      <div class="drawer-actions">
+        <button id="mobilePostBtn" class="btn btn-primary btn-full">
+          + Post New Scholarship
+        </button>
+      </div>
+    </div>
+  </div>
+  <div id="drawerOverlay" class="drawer-overlay"></div>
+
+  <!-- Hero & Search Section -->
+  <section class="hero-section">
+    <div class="container hero-container">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Daily Updates • Pakistan & Worldwide Opportunities
+      </div>
+      <h1 class="hero-title">
+        Discover Every Scholarship <br class="hidden-xs">
+        <span class="gradient-text">Across Pakistan & Around the Globe</span>
+      </h1>
+      <p class="hero-description">
+        Real-time opportunities for <strong>School</strong>, <strong>College</strong>, <strong>Undergraduate</strong>, <strong>Master's</strong>, and <strong>PhD</strong> students from universities, governments, and top institutions.
+      </p>
+
+      <!-- Main Search Bar -->
+      <div class="search-wrapper">
+        <div class="search-box">
+          <div class="search-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="searchInput" 
+            placeholder="Search by scholarship title, university (e.g. HEC, LUMS, Fulbright), country, or degree..." 
+            aria-label="Search scholarships"
+            autocomplete="off"
+          />
+          <button id="clearSearchBtn" class="search-clear-btn" aria-label="Clear search query" style="display: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Ribbon -->
+      <div class="stats-ribbon">
+        <div class="stat-item">
+          <span class="stat-number" id="totalScholarshipsCount">0</span>
+          <span class="stat-label">Total Opportunities</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="pakistanScholarshipsCount">0</span>
+          <span class="stat-label">Pakistan Programs</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="internationalScholarshipsCount">0</span>
+          <span class="stat-label">International Grants</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="fullyFundedCount">0</span>
+          <span class="stat-label">100% Fully Funded</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Horizontal Navigation Bar -->
+  <section class="categories-bar-section" id="categories">
+    <div class="container">
+      <div class="category-pills-container">
+        <div class="category-pills-scroll" id="categoryPills">
+          <button class="cat-pill active" data-category="all">
+            <span class="cat-emoji">✨</span>
+            <span class="cat-name">All Scholarships</span>
+          </button>
+          <button class="cat-pill" data-category="pakistan">
+            <span class="cat-emoji">🇵🇰</span>
+            <span class="cat-name">Pakistan Scholarships</span>
+          </button>
+          <button class="cat-pill" data-category="international">
+            <span class="cat-emoji">🌍</span>
+            <span class="cat-name">International Scholarships</span>
+          </button>
+          <button class="cat-pill" data-category="undergraduate">
+            <span class="cat-emoji">🎓</span>
+            <span class="cat-name">Undergraduate</span>
+          </button>
+          <button class="cat-pill" data-category="masters">
+            <span class="cat-emoji">📚</span>
+            <span class="cat-name">Master's</span>
+          </button>
+          <button class="cat-pill" data-category="phd">
+            <span class="cat-emoji">🏆</span>
+            <span class="cat-name">PhD Scholarships</span>
+          </button>
+          <button class="cat-pill" data-category="fully-funded">
+            <span class="cat-emoji">💯</span>
+            <span class="cat-name">Fully Funded</span>
+          </button>
+          <button class="cat-pill" data-category="government">
+            <span class="cat-emoji">🏛️</span>
+            <span class="cat-name">Government</span>
+          </button>
+          <button class="cat-pill" data-category="school-college">
+            <span class="cat-emoji">🎒</span>
+            <span class="cat-name">School & College</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Area: Filters + Grid -->
+  <main class="main-content" id="scholarships">
+    <div class="container">
+      <!-- Filter Toolbar -->
+      <div class="filter-toolbar">
+        <div class="filter-group">
+          <!-- Education Level Filter -->
+          <div class="select-wrapper">
+            <label for="levelFilter" class="sr-only">Education Level</label>
+            <select id="levelFilter" class="filter-select">
+              <option value="all">🎓 All Study Levels</option>
+              <option value="School">School (Matric / SSC)</option>
+              <option value="College">College (Inter / HSSC)</option>
+              <option value="Undergraduate">Undergraduate (BS / MBBS)</option>
+              <option value="Master's">Master's (MS / MPhil)</option>
+              <option value="PhD">PhD / Doctoral</option>
+            </select>
+          </div>
+
+          <!-- Country Filter -->
+          <div class="select-wrapper">
+            <label for="countryFilter" class="sr-only">Country</label>
+            <select id="countryFilter" class="filter-select">
+              <option value="all">🌍 All Countries</option>
+              <option value="Pakistan">🇵🇰 Pakistan</option>
+              <option value="United States">🇺🇸 United States</option>
+              <option value="United Kingdom">🇬🇧 United Kingdom</option>
+              <option value="Germany">🇩🇪 Germany</option>
+              <option value="Turkey">🇹🇷 Turkey</option>
+              <option value="Hungary">🇭🇺 Hungary</option>
+              <option value="Japan">🇯🇵 Japan</option>
+              <option value="European Union">🇪🇺 European Union</option>
+              <option value="Australia">🇦🇺 Australia</option>
+              <option value="China">🇨🇳 China</option>
+              <option value="Singapore">🇸🇬 Singapore</option>
+            </select>
+          </div>
+
+          <!-- Funding Filter -->
+          <div class="select-wrapper">
+            <label for="fundingFilter" class="sr-only">Funding Type</label>
+            <select id="fundingFilter" class="filter-select">
+              <option value="all">💰 All Funding Types</option>
+              <option value="Fully Funded">💯 Fully Funded</option>
+              <option value="Partially Funded">💵 Partially Funded</option>
+            </select>
+          </div>
+
+          <!-- Reset Filter Button -->
+          <button id="resetFiltersBtn" class="btn btn-outline btn-sm" title="Clear all filters">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            Reset
+          </button>
+        </div>
+
+        <!-- Sort Control & Results Counter -->
+        <div class="sort-and-count">
+          <span class="results-count" id="resultsCount">Showing 0 scholarships</span>
+          <div class="select-wrapper">
+            <label for="sortBySelect" class="sr-only">Sort by</label>
+            <select id="sortBySelect" class="sort-select">
+              <option value="newest">📅 Newest Added</option>
+              <option value="deadline-asc">⏳ Deadline: Ending Soonest</option>
+              <option value="deadline-desc">⌛ Deadline: Furthest</option>
+              <option value="title-asc">🔤 Title: A to Z</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Active Filters Tag Cloud (Rendered dynamically if filters active) -->
+      <div id="activeFilterTags" class="active-filter-tags"></div>
+
+      <!-- Scholarship Cards Grid -->
+      <div class="scholarship-grid" id="scholarshipGrid">
+        <!-- Rendered dynamically by JavaScript -->
+      </div>
+
+      <!-- Empty State / No Results Found -->
+      <div id="noResultsState" class="empty-state" style="display: none;">
+        <div class="empty-state-icon">🔍</div>
+        <h3>No scholarships found</h3>
+        <p>We couldn't find any scholarship matching your criteria. Try adjusting your search query or reset your category and country filters.</p>
+        <button id="emptyResetBtn" class="btn btn-primary">Clear All Filters</button>
+      </div>
+
+      <!-- Saved Bookmarks View Header (Hidden by default, shown when viewing saved items) -->
+      <div id="savedViewNotice" class="saved-view-notice" style="display: none;">
+        <div class="notice-content">
+          <h3>❤️ Saved Scholarships</h3>
+          <p>These are the opportunities you have bookmarked for later. Stored locally in your browser.</p>
+        </div>
+        <button id="exitSavedViewBtn" class="btn btn-outline btn-sm">← Back to All Scholarships</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- News & Announcements Section (Kept blank/placeholder as explicitly requested) -->
+  <section class="news-section" id="news">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">OFFICIAL CIRCULARS</div>
+        <h2 class="section-title">News & Announcements</h2>
+        <p class="section-subtitle">Real-time educational news, official HEC circulars, test date alerts, and admission circulars.</p>
+      </div>
+
+      <!-- Clean Blank State for News Section -->
+      <div class="news-blank-card">
+        <div class="news-blank-inner">
+          <div class="news-icon-circle">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v1m2 13a2 2 0 0 1-2-2V7m2 13a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/>
+            </svg>
+          </div>
+          <h3>News Section Currently Inactive</h3>
+          <p>Official notices, admission test bulletins, and university circulars will be published here in the next update.</p>
+          <div class="news-status-pill">
+            <span class="status-dot"></span>
+            All active scholarship posts are listed above in the main directory.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter / Daily Alert Subscription Banner -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-text">
+          <span class="badge-accent">NEVER MISS A DEADLINE</span>
+          <h2>Get Daily Scholarship Alerts in Your Inbox</h2>
+          <p>Join thousands of students across Pakistan getting instant notifications whenever HEC, foreign embassies, or top universities post new grants.</p>
+        </div>
+        <form class="newsletter-form" id="newsletterForm">
+          <div class="form-group-inline">
+            <input type="email" id="subscriberEmail" placeholder="Enter your email (e.g. name@domain.com)" required>
+            <button type="submit" class="btn btn-primary">Subscribe Free</button>
+          </div>
+          <span class="form-disclaimer">Zero spam. Unsubscribe anytime with 1-click.</span>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-col brand-col">
+        <div class="brand-logo footer-logo">
+          <div class="logo-mark">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+              <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+            </svg>
+          </div>
+          <span class="brand-title">Scholarship<strong>Hub</strong></span>
+        </div>
+        <p class="footer-bio">
+          Pakistan's premier open scholarship directory. Connecting high school, college, undergraduate, and graduate students with life-changing academic funding opportunities worldwide.
+        </p>
+        <div class="footer-badges">
+          <span class="footer-tag">🇵🇰 Pakistan Nationwide</span>
+          <span class="footer-tag">🌍 150+ Global Universities</span>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Scholarship Categories</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-cat-link" data-cat="pakistan">Pakistan Scholarships</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="international">International Scholarships</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="undergraduate">Undergraduate Degrees</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="masters">Master's / MS / MPhil</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="phd">Doctoral & PhD Fellowships</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="fully-funded">100% Fully Funded</a></li>
+          <li><a href="#" class="footer-cat-link" data-cat="government">Government Grants</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Student Levels</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="footer-level-link" data-lvl="School">School / Matric (SSC)</a></li>
+          <li><a href="#" class="footer-level-link" data-lvl="College">College / Inter (HSSC)</a></li>
+          <li><a href="#" class="footer-level-link" data-lvl="Undergraduate">University Bachelor's</a></li>
+          <li><a href="#" class="footer-level-link" data-lvl="Master's">Postgraduate Master's</a></li>
+          <li><a href="#" class="footer-level-link" data-lvl="PhD">PhD Candidates</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">Admin & Tools</h4>
+        <ul class="footer-links">
+          <li><button id="footerPostBtn" class="footer-text-btn">+ Post New Scholarship</button></li>
+          <li><button id="exportJsonBtn" class="footer-text-btn">📥 Export Database (JSON)</button></li>
+          <li><button id="resetStorageBtn" class="footer-text-btn">🔄 Reset to Defaults</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-content">
+        <p>© 2026 ScholarshipHub. Designed for Pakistani & Global students. Free, open, and daily updated.</p>
+        <div class="footer-bottom-links">
+          <span>Clean & Responsive</span>
+          <span>•</span>
+          <span>Fast & Minimalist</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scholarship Detail Modal -->
+  <div id="detailModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div class="modal-tags" id="modalTags">
+          <!-- Injected via JS -->
+        </div>
+        <button id="closeDetailModalBtn" class="modal-close-btn" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body" id="modalBody">
+        <h2 id="modalTitle" class="modal-title">Scholarship Title</h2>
+        <div class="modal-meta-row" id="modalMetaRow">
+          <!-- Injected via JS -->
+        </div>
+
+        <div class="modal-highlight-box" id="modalHighlightBox">
+          <!-- Summary injected via JS -->
+        </div>
+
+        <!-- Section: Key Highlights Grid -->
+        <div class="modal-specs-grid" id="modalSpecsGrid">
+          <!-- Dynamic specs -->
+        </div>
+
+        <!-- Section: Financial Benefits / Coverage -->
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <span class="section-icon">🎁</span> Financial Coverage & Benefits
+          </h3>
+          <ul class="bullet-list" id="modalCoverageList"></ul>
+        </div>
+
+        <!-- Section: Eligibility Criteria -->
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <span class="section-icon">✅</span> Detailed Eligibility Criteria
+          </h3>
+          <ul class="bullet-list" id="modalEligibilityList"></ul>
+        </div>
+
+        <!-- Section: Required Documents Checklist -->
+        <div class="modal-section">
+          <h3 class="modal-section-title">
+            <span class="section-icon">📑</span> Required Application Documents
+          </h3>
+          <ul class="bullet-list" id="modalDocumentsList"></ul>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="modal-footer-left">
+          <button id="modalBookmarkBtn" class="btn btn-outline btn-icon" title="Save this scholarship">
+            <svg class="heart-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span id="modalBookmarkLabel">Save</span>
+          </button>
+          <button id="modalShareBtn" class="btn btn-outline btn-icon" title="Share scholarship">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span>Share</span>
+          </button>
+        </div>
+        <div class="modal-footer-right">
+          <a id="modalApplyBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-apply">
+            <span>Apply on Official Portal</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Admin: Post New Scholarship Modal -->
+  <div id="postScholarshipModal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-lg" role="dialog" aria-modal="true" aria-labelledby="postModalTitle">
+      <div class="modal-header">
+        <div>
+          <span class="badge-pill-green">ADMIN / PUBLISHER PORTAL</span>
+          <h2 id="postModalTitle" class="modal-title">Post New Scholarship Opportunity</h2>
+          <p class="modal-subtitle">Add daily opportunities announced by any university, government or organization.</p>
+        </div>
+        <button id="closePostModalBtn" class="modal-close-btn" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <form id="postScholarshipForm" class="post-form">
+        <div class="modal-body">
+          <div class="form-row">
+            <div class="form-col-12">
+              <label for="postTitle" class="form-label">Scholarship Title <span class="required">*</span></label>
+              <input type="text" id="postTitle" class="form-control" placeholder="e.g. HEC Overseas PhD Scholarship 2026" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col-6">
+              <label for="postInstitution" class="form-label">Institution / Announcing Body <span class="required">*</span></label>
+              <input type="text" id="postInstitution" class="form-control" placeholder="e.g. Higher Education Commission (HEC) or Oxford University" required>
+            </div>
+            <div class="form-col-6">
+              <label for="postCountry" class="form-label">Country <span class="required">*</span></label>
+              <input type="text" id="postCountry" class="form-control" placeholder="e.g. Pakistan, United States, United Kingdom" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col-4">
+              <label for="postLevel" class="form-label">Primary Study Level <span class="required">*</span></label>
+              <select id="postLevel" class="form-control" required>
+                <option value="School">School (SSC / Matric)</option>
+                <option value="College">College (HSSC / Inter)</option>
+                <option value="Undergraduate" selected>Undergraduate (BS / MBBS)</option>
+                <option value="Master's">Master's (MS / MPhil)</option>
+                <option value="PhD">PhD / Doctoral</option>
+              </select>
+            </div>
+            <div class="form-col-4">
+              <label for="postFunding" class="form-label">Funding Type <span class="required">*</span></label>
+              <select id="postFunding" class="form-control" required>
+                <option value="Fully Funded" selected>💯 Fully Funded</option>
+                <option value="Partially Funded">💵 Partially Funded</option>
+                <option value="Tuition Waiver">🎓 Tuition Waiver</option>
+                <option value="Monthly Stipend">🪙 Monthly Stipend</option>
+              </select>
+            </div>
+            <div class="form-col-4">
+              <label for="postDeadline" class="form-label">Application Deadline <span class="required">*</span></label>
+              <input type="date" id="postDeadline" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col-12">
+              <label for="postApplyLink" class="form-label">Official Application Link (URL) <span class="required">*</span></label>
+              <input type="url" id="postApplyLink" class="form-control" placeholder="https://..." required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col-12">
+              <label class="form-label">Category Tags (Select all that apply) <span class="required">*</span></label>
+              <div class="checkbox-tag-group">
+                <label class="checkbox-tag">
+                  <input type="checkbox" name="postCategories" value="pakistan" checked>
+                  <span>🇵🇰 Pakistan Scholarships</span>
+                </label>
+                <label class="checkbox-tag">
+                  <input type="checkbox" name="postCategories" value="international">
+                  <span>🌍 International Scholarships</span>
+                </label>
+                <label class="checkbox-tag">
+                  <input type="checkbox" name="postCategories" value="undergraduate" checked>
+                  <span>🎓 Undergraduate</span>
+                </label>
+                <label class="checkbox-tag">
+                  <input type="checkbox" name="postCategories" value="masters">
+                  <span>📚 Master's</span>
+                </label>
+                <label class="checkbox-tag">
+                  <input type="checkbox" name="postCategories" value="phd">
+                  <span>🏆 PhD</span>
+                </label>
+                <label class="checkbox-tag">
+                  <input type="checkbox" name="postCategories" value="fully-funded" checked>
+                  <span>💯 Fully Funded</span>
+                </label>
+                <label class="checkbox-tag">
+                  <input type="checkbox" name="postCategories" value="government">
+                  <span>🏛️ Government</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col-12">
+              <label for="postSummary" class="form-label">Brief Overview / Summary <span class="required">*</span></label>
+              <textarea id="postSummary" class="form-control" rows="2" placeholder="One or two sentences summarizing this scholarship opportunity..." required></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col-12">
+              <label for="postEligibility" class="form-label">Eligibility Criteria (Enter one requirement per line) <span class="required">*</span></label>
+              <textarea id="postEligibility" class="form-control" rows="3" placeholder="Must be a Pakistani citizen&#10;Minimum 60% marks in intermediate or terminal degree&#10;Family income within designated bracket" required></textarea>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-col-6">
+              <label for="postCoverage" class="form-label">Coverage & Benefits (One per line)</label>
+              <textarea id="postCoverage" class="form-control" rows="3" placeholder="100% Tuition fee waiver&#10;Monthly living stipend PKR 30,000&#10;Book & study allowance"></textarea>
+            </div>
+            <div class="form-col-6">
+              <label for="postDocuments" class="form-label">Required Documents (One per line)</label>
+              <textarea id="postDocuments" class="form-control" rows="3" placeholder="CNIC or B-Form copy&#10;Academic transcripts & marksheets&#10;Income verification certificate"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <div class="modal-footer-left">
+            <span class="helper-note">Posts are saved immediately to your browser and database.</span>
+          </div>
+          <div class="modal-footer-right">
+            <button type="button" id="cancelPostBtn" class="btn btn-outline">Cancel</button>
+            <button type="submit" class="btn btn-primary">Publish Scholarship Now</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
