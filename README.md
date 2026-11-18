@@ -111,6 +111,45 @@ Whenever a new scholarship is announced:
 4. The scholarship will immediately appear at the top of your feed with active badges, search indexing, and detail modal support!
 5. To permanently save newly posted scholarships to your code repository, click **"📥 Export Database (JSON)"** in the footer.
 
+## 🤖 AI Automation Pipeline Integration
+
+The scholarship sections and database (`INITIAL_SCHOLARSHIPS` in `js/data.js`) are initialized completely empty (`[]`) so your automated pipeline can ingest scholarships dynamically.
+
+### Standard Pipeline JSON Schema:
+```json
+{
+  "id": "hec-phd-fellowship-2026",
+  "title": "HEC Indigenous PhD Fellowship",
+  "institution": "Higher Education Commission (HEC)",
+  "country": "Pakistan",
+  "countryCode": "PK",
+  "level": "PhD",
+  "fundingType": "Fully Funded",
+  "isGovernment": true,
+  "isInternational": false,
+  "categories": ["pakistan", "phd", "fully-funded", "government"],
+  "educationLevels": ["PhD"],
+  "deadline": "2026-10-15",
+  "applyLink": "https://hec.gov.pk/",
+  "featured": true,
+  "summary": "Full tuition waiver and monthly living stipend for PhD scholars.",
+  "eligibility": [
+    "Pakistani / AJK national with 16 years of education.",
+    "Minimum 3.0 out of 4.0 CGPA."
+  ],
+  "coverage": [
+    "100% full university tuition fee.",
+    "Monthly stipend PKR 45,000."
+  ],
+  "documents": [
+    "Attested degrees and academic transcripts.",
+    "HEC HAT scorecard."
+  ]
+}
+```
+
+Whenever your pipeline generates or fetches new items, it can write directly to `INITIAL_SCHOLARSHIPS` in `js/data.js`, or call `saveCustomScholarship(item)` in JavaScript, or store items in `localStorage` under `scholarship_hub_items_v2`.
+
 ---
 
 ## 🌐 Free Deployment Options

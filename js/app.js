@@ -515,7 +515,39 @@ function renderScholarships() {
 
   if (list.length === 0) {
     grid.innerHTML = "";
-    if (noResults) noResults.style.display = "block";
+    if (noResults) {
+      if (state.scholarships.length === 0) {
+        // Completely blank directory awaiting AI pipeline
+        noResults.innerHTML = `
+          <div class="empty-state-icon">🎓</div>
+          <h3>Scholarship Directory Ready</h3>
+          <p>No scholarships are currently posted. Daily opportunities from universities, governments, and institutions across Pakistan and worldwide will appear here via your automated pipeline.</p>
+          <button id="emptyPostManualBtn" class="btn btn-primary">+ Post Scholarship</button>
+        `;
+        const postBtn = document.getElementById("emptyPostManualBtn");
+        if (postBtn) {
+          postBtn.addEventListener("click", () => {
+            if (typeof openPostModal === "function") openPostModal();
+          });
+        }
+      } else {
+        // Filter or search yielded 0 results
+        noResults.innerHTML = `
+          <div class="empty-state-icon">🔍</div>
+          <h3>No scholarships found</h3>
+          <p>We couldn't find any scholarship matching your current filters. Try adjusting your search query or resetting your filters.</p>
+          <button id="emptyResetBtn" class="btn btn-primary">Clear All Filters</button>
+        `;
+        const resetBtn = document.getElementById("emptyResetBtn");
+        if (resetBtn) {
+          resetBtn.addEventListener("click", () => {
+            const resetBtnToolbar = document.getElementById("resetFiltersBtn");
+            if (resetBtnToolbar) resetBtnToolbar.click();
+          });
+        }
+      }
+      noResults.style.display = "block";
+    }
     return;
   }
 
