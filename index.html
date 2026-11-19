@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scholarship Hub — Pakistan & International Scholarships</title>
   <meta name="description" content="Discover daily updated scholarship opportunities from Pakistan and top universities worldwide. Covering School, College, Undergraduate, Master's, and PhD programs.">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <script>
+    // Immediately clear all previous sample scholarships from browser localStorage
+    try {
+      localStorage.removeItem("scholarship_hub_items_v1");
+      localStorage.removeItem("scholarship_hub_items_v2");
+    } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
@@ -650,9 +660,9 @@
   <!-- Toast Notification Container -->
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
-  <!-- Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/admin.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Scripts with Cache-Buster -->
+  <script src="js/data.js?v=v3_empty"></script>
+  <script src="js/admin.js?v=v3_empty"></script>
+  <script src="js/app.js?v=v3_empty"></script>
 </body>
 </html>

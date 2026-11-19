@@ -28,11 +28,12 @@
 const INITIAL_SCHOLARSHIPS = [];
 
 // Helper functions for storage and management
-const STORAGE_KEY = "scholarship_hub_items_v2";
+const STORAGE_KEY = "scholarship_hub_items_v3";
 
-// Clean legacy test storage if present
+// Clean any legacy test storage if present
 try {
   localStorage.removeItem("scholarship_hub_items_v1");
+  localStorage.removeItem("scholarship_hub_items_v2");
 } catch (e) {}
 
 function getStoredScholarships() {
