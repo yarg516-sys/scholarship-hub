@@ -111,9 +111,28 @@ Whenever a new scholarship is announced:
 4. The scholarship will immediately appear at the top of your feed with active badges, search indexing, and detail modal support!
 5. To permanently save newly posted scholarships to your code repository, click **"📥 Export Database (JSON)"** in the footer.
 
-## 🤖 AI Automation Pipeline Integration
+## 🤖 Automated AI Research & Publishing Pipeline (GitHub Actions)
 
-The scholarship sections and database (`INITIAL_SCHOLARSHIPS` in `js/data.js`) are initialized completely empty (`[]`) so your automated pipeline can ingest scholarships dynamically.
+An autonomous daily pipeline powered by **Google Gemini AI** and **GitHub Actions** that automatically researches, strictly verifies, and publishes genuine scholarships without human intervention.
+
+### How It Operates:
+1. **Daily Cron Trigger**: Runs automatically every day at `06:00 UTC` (11:00 AM Pakistan Standard Time).
+2. **On-Demand Manual Trigger**: You can trigger the pipeline anytime by navigating to the [GitHub Actions Tab](https://github.com/yarg516-sys/scholarship-hub/actions) -> Select **Daily AI Scholarship Research & Publishing Pipeline** -> Click **Run workflow**.
+3. **AI Deep Research**: Analyzes official university circulars, provincial and federal portals (HEC, PEEF, SHEC, LUMS, NUST, AKU, FBISE) and global fellowships (Fulbright, Chevening, DAAD, MEXT, CSC, Turkiye Burslari).
+4. **Strict Multi-Point Verification**:
+   - **Domain Trustworthiness**: Rejects third-party blogs, ad aggregators, and spam links. Only accepts official academic and government domains (`.edu.pk`, `.gov.pk`, `.edu`, `.gov`, `.ac.uk`, `.org`).
+   - **Live HTTP Check**: Performs automated network health checks to ensure the official application portal is live and reachable.
+   - **Deadline Validation**: Automatically discards expired scholarships (`deadline >= today`).
+   - **Duplicate Prevention**: Cross-references program IDs, titles, and application URLs against the existing catalog to avoid duplicate posts.
+5. **Auto-Deploy to GitHub Pages**: When new verified scholarships are found, the pipeline commits the updated `js/data.js` and `index.html` cache-buster directly to `main`, automatically triggering GitHub Pages deployment!
+
+### Storing Your Gemini API Key in GitHub Secrets:
+For enhanced security:
+1. Open your repository: [https://github.com/yarg516-sys/scholarship-hub/settings/secrets/actions](https://github.com/yarg516-sys/scholarship-hub/settings/secrets/actions)
+2. Click **New repository secret**.
+3. Name: `GEMINI_API_KEY`
+4. Value: Paste your Gemini API key.
+5. Click **Add secret**.
 
 ### Standard Pipeline JSON Schema:
 ```json
